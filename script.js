@@ -10,5 +10,12 @@ console.log(currentDay);
 
 $(".saveBtn").on("click", function() {
     var description = $(this).siblings(".description").val();
-    console.log(description);
+    var time = $(this).siblings(".description").attr("id");
+    console.log(description, time);
+    localStorage.setItem(time, description);
 })
+
+for (let i = 9; i < 21; i++) {
+    var userData = localStorage.getItem(i);
+    $(`#${i}`).val(userData);
+}

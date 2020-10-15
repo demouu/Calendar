@@ -7,3 +7,8 @@
 var currentDay = $("#currentDay");
 currentDay.text(moment().format("dddd, MMM Do YYYY"));
 console.log(currentDay);
+
+$(".saveBtn").on("click", function() {
+    var description = $(this).siblings(".description").val();
+    console.log(description);
+})

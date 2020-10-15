@@ -15,7 +15,17 @@ $(".saveBtn").on("click", function() {
     localStorage.setItem(time, description);
 })
 
+var currentTime = moment().hours()
+console.log(currentTime);
+
 for (let i = 9; i < 21; i++) {
     var userData = localStorage.getItem(i);
     $(`#${i}`).val(userData);
+    if (currentTime > i){
+        $(`#${i}`).addClass("past")
+    } else if (currentTime === i){
+        $(`#${i}`).addClass("present")
+    } else {
+        $(`#${i}`).addClass("future")
+    }
 }
